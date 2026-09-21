@@ -1,4 +1,4 @@
-Project Title: **Enterprise Issue Escalation & Service Desk Management System**
+# Project Title: **Enterprise Issue Escalation & Service Desk Management System**
 
 # 1. Project Overview
 
@@ -68,8 +68,6 @@ Acts as the **single entry point** for all client requests.
 
 Provides **service discovery** between the microservices.
 
----
-
 # 4. Microservice Identification and Service Discovery
 
 The application is divided into independent microservices according to their responsibilities.
@@ -84,7 +82,6 @@ The application is divided into independent microservices according to their res
 | Eureka Server        | 8761 |
 
 We use **Eureka Server** as the service registry.
-
 Each microservice registers itself with Eureka, allowing services to discover and communicate with each other using their service names.
 
 For example:
@@ -99,12 +96,9 @@ Notification Service
 
 This provides **service discovery and loose coupling** between the services.
 
----
-
 # 5. JWT Authentication
 
 The system uses **JWT (JSON Web Token)** for authentication.
-
 The three roles first register and then log in:
 
 ```text
@@ -129,9 +123,6 @@ The JWT is sent with protected API requests using:
 ```text
 Authorization: Bearer <JWT>
 ```
-
----
-
 # 6. Authorization
 
 The system uses **role-based authorization** to control access to resources.
@@ -166,68 +157,9 @@ The Staff JWT allows the Staff member to:
 * Update the complaint status
 * Mark the complaint as resolved
 
----
-
-# 7. Complete Complaint Flow
-
-The complete flow of the system is:
-
-```text
-                    USER
-                      |
-                      ↓
-                Sign-up / Login
-                      |
-                      ↓
-                  JWT Token
-                      |
-                      ↓
-               Create Complaint
-                      |
-                      ↓
-                API Gateway
-                      |
-                      ↓
-              Complaint Service
-                      |
-                      ↓
-                 PostgreSQL
-                      |
-                      ↓
-                ADMIN REVIEWS
-                      |
-                      ↓
-          Assign Department & Staff
-                      |
-                      ↓
-              Assignment Service
-                      |
-                      ↓
-               STAFF RECEIVES
-              Assigned Complaint
-                      |
-                      ↓
-             Staff Works on Issue
-                      |
-                      ↓
-             Update Complaint Status
-                      |
-                      ↓
-             Notification Service
-                      |
-                      ↓
-              USER GETS UPDATE
-                      |
-                      ↓
-              Complaint Resolved
-```
-
----
-
-# 8. API Gateway Configuration
+# 7. API Gateway Configuration
 
 The **API Gateway runs on port 8890** and acts as the single entry point to the backend.
-
 The Gateway routes requests according to their endpoint.
 
 | Endpoint            | Service              |
@@ -252,10 +184,7 @@ Eureka Service Discovery
    ↓
 Required Microservice
 ```
-
----
-
-# 9. Inter-Service Communication
+# 8. Inter-Service Communication
 
 The microservices communicate with each other through **REST-based communication**.
 
@@ -285,12 +214,9 @@ User Notification
 
 This allows the User to receive updates regarding the complaint.
 
----
-
-# 10. Database
+# 9. Database
 
 The project uses **PostgreSQL** for storing application data.
-
 Each microservice has its own database:
 
 ```text
@@ -302,12 +228,9 @@ Notification Service  → notification_db
 
 This follows the **Database-per-Service** approach.
 
----
-
-# 11. API Testing
+# 10. API Testing
 
 **Postman** is used to test the backend REST APIs.
-
 All external API requests are sent through the API Gateway:
 
 ```text
@@ -350,7 +273,7 @@ PUT  /notifications/{id}/read
 
 ---
 
-# 12. Architecture
+# 11. Architecture
 
 ```text
                          CLIENT
@@ -374,9 +297,7 @@ PUT  /notifications/{id}/read
 
 The architecture separates each major responsibility into an independent microservice while allowing the services to communicate through service discovery and REST APIs.
 
----
-
-# 13. Project Conclusion
+# 12. Project Conclusion
 
 The **Enterprise Issue Escalation & Service Desk Management System** provides a structured and secure way to manage complaints.
 
@@ -400,4 +321,4 @@ The project demonstrates the practical implementation of **Microservices, Servic
 
 By separating authentication, complaints, assignments, and notifications into independent services, the system provides a clear and organized architecture for complaint management.
 
-> **Our goal is to ensure that every complaint is properly assigned, tracked, updated, and resolved without leaving any issue unanswered.**
+# **Our goal is to ensure that every complaint is properly assigned, tracked, updated, and resolved without leaving any issue unanswered.**
