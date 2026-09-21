@@ -321,4 +321,4 @@ The project demonstrates the practical implementation of **Microservices, Servic
 
 By separating authentication, complaints, assignments, and notifications into independent services, the system provides a clear and organized architecture for complaint management.
 
-# **Our goal is to ensure that every complaint is properly assigned, tracked, updated, and resolved without leaving any issue unanswered.**
+**Our goal is to ensure that every complaint is properly assigned, tracked, updated, and resolved without leaving any issue unanswered.**
